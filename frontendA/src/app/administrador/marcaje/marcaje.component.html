@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+    <div class="container" *ngIf="entrada; else clockout">
+        <h1 class="display-1">No has marcado tu entrada aún!</h1>
+        <p><em>Presiona el boton de "Clock in" para marcar tu entrada.</em></p>
+        <button type="button" class="btn btn-info" (click)="Marcaje()">Clock in!</button>
+      </div>
+      <ng-template #clockout>
+        <div class="container">
+          <div class="container">
+            <p class="h1">Tu ultimo marcaje fue a las <mark>{{jstoday}}</mark> con exito</p>
+          </div>
+            <p><em>Presiona el boton de "Clock it" para marcar nuevamente.</em></p>
+            <button type="button" class="btn btn-dark" (click)="Marcaje()">Clock it!</button>
+          </div>
+      </ng-template>
+</div>
