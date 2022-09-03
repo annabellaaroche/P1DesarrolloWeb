@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Marcaje } from '../models/marcaje';
+import { Usuario } from '../models/usuario';
 @Injectable({
   providedIn: 'root'
 })
 export class MarcajeService {
 
-  private apiURL = "";
+  private apiURL = "http://127.0.0.1:8000/api";
     
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,36 +18,36 @@ export class MarcajeService {
    
   constructor(private httpClient: HttpClient) { }
     
-  getAll(): Observable<Marcaje[]> {
-    return this.httpClient.get<Marcaje[]>(this.apiURL + '/marcaje')
+  getAll(): Observable<Usuario[]> {
+    return this.httpClient.get<Usuario[]>(this.apiURL + '/usuario')
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
-  create(marcaje: Marcaje): Observable<Marcaje> {
-    return this.httpClient.post<Marcaje>(this.apiURL + '/marcaje', JSON.stringify(marcaje), this.httpOptions)
+  create(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.post<Usuario>(this.apiURL + '/usuario', JSON.stringify(usuario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }  
     
-  find(id: number): Observable<Marcaje> {
-    return this.httpClient.get<Marcaje>(this.apiURL + '/marcaje/' + id)
+  find(id: number): Observable<Usuario> {
+    return this.httpClient.get<Usuario>(this.apiURL + '/usuario/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
-  update(id: number, product: Marcaje): Observable<Marcaje> {
-    return this.httpClient.put<Marcaje>(this.apiURL + '/marcaje/' + id, JSON.stringify(product), this.httpOptions)
+  update(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.put<Usuario>(this.apiURL + '/usuario/' + id, JSON.stringify(usuario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
   delete(id: number){
-    return this.httpClient.delete<Marcaje>(this.apiURL + '/marcaje/' + id, this.httpOptions)
+    return this.httpClient.delete<Usuario>(this.apiURL + '/usuario/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

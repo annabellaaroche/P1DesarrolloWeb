@@ -9,6 +9,7 @@ import { CreateComponent } from './create/create.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MarcajeComponent } from './marcaje/marcaje.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AdministradorModule { }
