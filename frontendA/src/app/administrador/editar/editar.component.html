@@ -1,5 +1,9 @@
 <head><meta charset="utf-8">
 </head>
+<div class="container-fluid text-end">  <p>Tipo de usuario: 1 (admin)
+</p>
+<p>Tipo de usuario: 0 (normal)
+</p></div>
 <div class="container">
     <h1>Actualizar Usuario</h1>
     
@@ -22,15 +26,14 @@
    
         <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <textarea
+            <input
                 formControlName="contrasena"
                 id="contrasena"
                 type="password"
                 [(ngModel)]="usuario.contrasena"
                 class="form-control">
-            </textarea>
             <div *ngIf="f['contrasena'].touched && f['contrasena'].invalid" class="alert alert-danger">
-                <div *ngIf="f['contrasena'].errors && f['contrasena'].errors['required']">La descripcion es obligatoria.</div>
+                <div *ngIf="f['contrasena'].errors && f['contrasena'].errors['required']">La contraseña es obligatoria.</div>
             </div>
         </div>
         <div class="form-group">
@@ -38,11 +41,11 @@
             <input
                 formControlName="email"
                 id="email"
-                type="text"
+                type="email"
                 [(ngModel)]="usuario.email"
                 class="form-control">
             <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-                <div *ngIf="f['email'].errors && f['email'].errors['required']">El codigo es obligatorio.</div>
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">El Email es obligatorio.</div>
             </div>
         </div>
    
@@ -55,7 +58,7 @@
                 [(ngModel)]="usuario.tipo_usuario"
                 class="form-control">            
             <div *ngIf="f['tipo_usuario'].touched && f['tipo_usuario'].invalid" class="alert alert-danger">
-                <div *ngIf="f['tipo_usuario'].errors && f['tipo_usuario'].errors['required']">El precio es obligatorio.</div>
+                <div *ngIf="f['tipo_usuario'].errors && f['tipo_usuario'].errors['required']">Tipo de usuario es obligatorio.</div>
             </div>
         </div>
    

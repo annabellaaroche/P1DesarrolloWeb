@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
+<div class="container-fluid text-end">  <p>Tipo de usuario: 1 (admin)
+</p>
+<p>Tipo de usuario: 0 (normal)
+</p></div>
 <div class="container">
-    <h1>Crear Marcaje Nuevo</h1>
+    <h1>Crear Usuario Nuevo</h1>
 
     <a href="#" routerLink="/admini/admin" class="btn btn-dark">Regresar</a>
          
@@ -22,10 +26,10 @@
             <input
                 formControlName="contrasena"
                 id="contrasena"
-                type="text"
+                type="password"
                 class="form-control">
             <div *ngIf="f['contrasena'].touched && f['contrasena'].invalid" class="alert alert-danger">
-                <div *ngIf="f['contrasena'].errors && f['contrasena'].errors['required']">El codigo es obligatorio.</div>
+                <div *ngIf="f['contrasena'].errors && f['contrasena'].errors['required']">la contraseña es obligatorio.</div>
             </div>
         </div>
         <div class="form-group">
@@ -33,10 +37,10 @@
             <input
                 formControlName="email"
                 id="email"
-                type="text"
+                type="email"
                 class="form-control">
             <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-                <div *ngIf="f['email'].errors && f['email'].errors['required']">El codigo es obligatorio.</div>
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">El correo es obligatorio.</div>
             </div>
         </div>
    
@@ -48,7 +52,7 @@
                 type="number"
                 class="form-control"/>            
             <div *ngIf="f['tipo_usuario'].touched && f['tipo_usuario'].invalid" class="alert alert-danger">
-                <div *ngIf="f['tipo_usuario'].errors && f['tipo_usuario'].errors['required']">El precio es obligatorio.</div>
+                <div *ngIf="f['tipo_usuario'].errors && f['tipo_usuario'].errors['required']">Tipo de Usuario es obligatorio.</div>
             </div>
         </div>
    

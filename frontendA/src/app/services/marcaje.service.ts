@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Usuario } from '../models/usuario';
+import { Marcado } from '../models/marcado';
 @Injectable({
   providedIn: 'root'
 })
@@ -63,4 +64,24 @@ export class MarcajeService {
     }
     return throwError(errorMessage);
  }
+
+ getAllMarcaje(): Observable<Marcado[]> {
+  return this.httpClient.get<Marcado[]>(this.apiURL + '/marcajeD')
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+
+getMarcajeByUser(id: number, fecha:string): Observable<Marcado> {
+  return this.httpClient.get<Marcado>(this.apiURL + '/marcajeD/user'+ id +'/'+fecha)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+createMarcaje(marcaje: Marcado): Observable<Marcado> {
+  return this.httpClient.post<Marcado>(this.apiURL + '/marcajeD', JSON.stringify(marcaje), this.httpOptions)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}  
 }
