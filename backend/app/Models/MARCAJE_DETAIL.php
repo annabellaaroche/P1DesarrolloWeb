@@ -13,7 +13,7 @@ class MARCAJE_DETAIL extends Model
     protected $primarykey = 'id';
 
     protected $fillable = [
-        'fk_idUsuario','fk_idestado'
+        'fk_idUsuario','fk_idestado','fecha','hora'
     ];
 
     public $timestamps = false;
