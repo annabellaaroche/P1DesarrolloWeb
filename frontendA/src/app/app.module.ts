@@ -3,22 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MarcajeComponent } from './marcaje/marcaje.component';
+import { AdministradorModule } from './administrador/administrador.module';
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
-
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    MarcajeComponent,
-    LoginComponent,
-    AdminComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdministradorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
