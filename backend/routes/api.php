@@ -31,6 +31,7 @@ Route::group([],
         Route::post('/marcajeD', 'MARCAJE_DETAIL_CONTROLLER@store');
         Route::get('/usuario/{id}', 'USUARIO_CONTROLLER@show');
         Route::get('/marcajeD/{id}', 'MARCAJE_DETAIL_CONTROLLER@show');
+        Route::get('/marcajeD/user/{id}/{fecha}', 'MARCAJE_DETAIL_CONTROLLER@showByuser');
 
     }
 );
