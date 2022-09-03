@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Marcaje } from 'src/app/models/marcaje';
+import { Usuario } from 'src/app/models/usuario';
 import { MarcajeService } from 'src/app/services/marcaje.service';
 
 @Component({
@@ -20,10 +20,10 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      cliemt_id: new FormControl('', [Validators.required]),
-      marcaje_id: new FormControl('', [Validators.required]),
-      fecha: new FormControl('', Validators.required),
-      hora: new FormControl('', Validators.required)
+      nombre: new FormControl('', [Validators.required]),
+      contrasena: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      tipo_usuario: new FormControl('', Validators.required)
     });
   }
 
@@ -33,14 +33,12 @@ export class CreateComponent implements OnInit {
 
   onSubmit(){
     if (!this.form.valid) {
-      return;
+      return ;
     }
-    let marcaje: Marcaje = this.form.value;
-    this.marcajeService.create(marcaje).subscribe((res:any) => {
+    let usuario: Usuario = this.form.value;
+    this.marcajeService.create(usuario).subscribe((res:any) => {
       alert(
-        'Exito'+
-        res.message+
-        'success'
+        'Exito success'
       )
          this.router.navigateByUrl('admini/admin');
     })

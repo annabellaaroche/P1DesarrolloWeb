@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Marcaje } from 'src/app/models/marcaje';
+import { Usuario } from 'src/app/models/usuario';
 import { MarcajeService } from 'src/app/services/marcaje.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { MarcajeService } from 'src/app/services/marcaje.service';
 })
 export class ViewComponent implements OnInit {
 
-  marcaje_id!: number;
-  marcaje: Marcaje = new Marcaje();
+  id_usuario!: number;
+  usuario: Usuario = new Usuario();
 
   constructor(
     private marcajeService: MarcajeService,
@@ -19,11 +19,10 @@ export class ViewComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    /*this.marcaje_id = this.route.snapshot.params['productId'];
-         
-    this.marcajeService.find(this.marcaje_id).subscribe((data: Marcaje)=>{
-      this.marcaje = data;
-    });*/
+  ngOnInit(): void {  
+    this.id_usuario = this.route.snapshot.params['id'];
+    this.marcajeService.find(this.id_usuario).subscribe((data: Usuario)=>{
+      this.usuario = data;
+    });
   }
 }

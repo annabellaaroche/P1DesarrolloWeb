@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
+import { MarcajeService } from 'src/app/services/marcaje.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,18 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  constructor() { }
-  marcajes:Array<any>=[{marcaje_id:"1",nombre:"annabella",apellidos:"aroche",hora:"20:35",fecha:"30/08/2022"}];
+  usuario: Usuario[] = [];
+  constructor(
+    public marcajeService: MarcajeService,
+    private router: Router
+    ) { }
   ngOnInit(): void {
-   /* this.postService.getAll().subscribe((data: Product[])=>{
-      this.products = data;
-    })  */
+    this.marcajeService.getAll().subscribe((data: Usuario[])=>{
+      this.usuario = data;
+      
+    })  
   }
-  deleteMarcaje(id:number){
-    /*this.postService.delete(id).subscribe(res => {
-         this.products = this.products.filter(item => item.product_id !== id);
+  deleteUsuario(id:number){
+    this.marcajeService.delete(id).subscribe(res => {
+         this.usuario = this.usuario.filter(item => item.id_usuario !== id);
          console.log('Post deleted successfully!');
-    })*/
+    })
   }
 }

@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
+<div class="container-fluid text-end">  <p>Tipo de usuario: 1 (admin)
+</p>
+<p>Tipo de usuario: 0 (normal)
+</p></div>
 <div class="container">
   <button type="button" class="btn btn-dark" routerLink="/admini/create">Crear Marcaje</button>
 </div>
@@ -6,24 +10,24 @@
 <table class="table">
     <thead>
       <tr >
+        <th scope="col">id</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Apellidos</th>
-        <th scope="col">Hora</th>
-        <th scope="col">Fecha</th>
+        <th scope="col">Email</th>
+        <th scope="col">Tipo Usuario</th>
         <th scope="col">Opciones</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let marcaje of marcajes">
-        <td>{{marcaje.nombre}}</td>
-        <td>{{marcaje.apellidos}}</td>
-        <td>{{marcaje.hora}}</td>
-        <td>{{marcaje.fecha}}</td>
-        <td> <button type="button" class="btn btn-dark" routerLink="/admini/view/{{marcaje.marcaje_id}}">Ver</button> </td>
-        <td>  <button type="button" class="btn btn-warning" routerLink="/admini/editar/{{marcaje.marcaje_id}}">Editar</button></td>
-        <td>  <button type="button"  class="btn btn-info" (click)="deleteMarcaje(marcaje.marcaje_id)">Borrar</button> </td>
+      <tr *ngFor="let usuario of usuario">
+        <td>{{usuario.id_usuario}}</td>
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.tipo_usuario}}</td>
+        <td> <button type="button" class="btn btn-dark" routerLink="/admini/view/{{usuario.id_usuario}}">Ver</button> </td>
+        <td>  <button type="button" class="btn btn-warning" routerLink="/admini/editar/{{usuario.id_usuario}}">Editar</button></td>
+        <td>  <button type="button"  class="btn btn-info" (click)="deleteUsuario(usuario.id_usuario)">Borrar</button> </td>
       </tr>
     </tbody>
   </table>
