@@ -72,9 +72,9 @@ export class MarcajeService {
   )
 }
 
-getMarcajeByUser(id: number, fecha:string): Observable<Marcado> {
-  return this.httpClient.get<Marcado>(this.apiURL + '/marcajeD/user'+ id +'/'+fecha)
-  .pipe(
+getMarcajeByUser(id: number, fecha:string): Observable<Marcado[]> {
+  return this.httpClient.get<Marcado[]>(this.apiURL + '/marcajeD/user/'+ id +'/'+ fecha)
+  .pipe( 
     catchError(this.errorHandler)
   )
 }
