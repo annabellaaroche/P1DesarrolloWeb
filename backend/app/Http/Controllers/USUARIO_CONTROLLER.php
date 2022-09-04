@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\USUARIO;
+use Illuminate\Support\Facades\DB;
+
 
 
 class USUARIO_CONTROLLER extends Controller
 {
     //
     public function obtenerUsuarios(){
-        return USUARIO::all();
+        
+        $usuario = DB::table('usuario')->where('activo',1)->get();
+        return $usuario;
     }
 
     /**
@@ -35,6 +39,11 @@ class USUARIO_CONTROLLER extends Controller
         return $usuario;
     }
 
+    public function showByEmail($email)
+    {
+        $usuario = DB::table('usuario')->where('email', $email)->get();
+        return $usuario;
+    }
     /**
      * Update the specified resource in storage
      * 
@@ -58,12 +67,16 @@ class USUARIO_CONTROLLER extends Controller
      * @param \App\Models\USUARIO $usuario
      * @return \Illuminate\http\Response
      */
-    public function destroy($id)
+ public function destroy($id, Request $request)
     {
+        $usuario = new USUARIO();
+        $activo = 0;
+        $usuario->activo = $request->activo;
         $usuario = USUARIO::find($id);
-        $usuario->delete();
+        $usuario->update(['activo' => $request->input($activo)]);
         return response ()->json([
-            'message' => "Client deleted successfully!",
+            'message' => "Usuario deleted successfully!",
+            'usuario' => $usuario
         ], 200);
     }
 
