@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { MarcajeService } from 'src/app/services/marcaje.service';
 
@@ -10,11 +10,18 @@ import { MarcajeService } from 'src/app/services/marcaje.service';
 })
 export class AdminComponent implements OnInit {
   usuario: Usuario[] = [];
+  id_user =0;
+  tipo_usuario =0;
   constructor(
     public marcajeService: MarcajeService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
+
     ) { }
+    
   ngOnInit(): void {
+    this.id_user = this.route.snapshot.params['id_usuario'];
+    this.tipo_usuario = this.route.snapshot.params['tipo_usuario'];
     this.marcajeService.getAll().subscribe((data: Usuario[])=>{
       this.usuario = data;
       

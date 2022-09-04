@@ -15,8 +15,9 @@ export class MarcajeComponent implements OnInit {
   fecha ='';
   hora ='';
   entrada:boolean=true;
-  id_usuario= 9;
+  id_usuario= 0;
   id_estado=0;
+  tipo_usuario=0;
   marcado: Marcado = new Marcado();
   lastMarcaje: Marcado[]=[];
   constructor(
@@ -27,7 +28,7 @@ export class MarcajeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.id_usuario = this.route.snapshot.params['id'];
+    this.id_usuario = this.route.snapshot.params['id_usuario'];
     this.setDate();
     this.marcajeService.getMarcajeByUser(this.id_usuario,this.fecha).subscribe((data:Marcado[])=>{
     this.lastMarcaje = data;
