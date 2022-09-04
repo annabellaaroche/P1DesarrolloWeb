@@ -20,9 +20,12 @@ export class EditarComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
+  id_usuario =0;
+  tipo_usuario =0;
   ngOnInit(): void {
     this.usuario_id = this.route.snapshot.params['id'];
+    this.id_usuario = this.route.snapshot.params['id_usuario'];
+    this.tipo_usuario = this.route.snapshot.params['tipo_usuario'];
     this.marcajeService.find(this.usuario_id).subscribe((data: Usuario)=>{
       this.usuario = data;
     }); 

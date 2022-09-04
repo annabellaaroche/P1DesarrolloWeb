@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { MarcajeService } from 'src/app/services/marcaje.service';
 
@@ -15,10 +15,14 @@ export class CreateComponent implements OnInit {
   
   constructor(
     private marcajeService: MarcajeService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
-
+  id_usuario =0;
+  tipo_usuario =0;
   ngOnInit(): void {
+    this.id_usuario = this.route.snapshot.params['id_usuario'];
+    this.tipo_usuario = this.route.snapshot.params['tipo_usuario'];
     this.form = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       contrasena: new FormControl('', Validators.required),

@@ -39,6 +39,13 @@ export class MarcajeService {
       catchError(this.errorHandler)
     )
   }
+
+  findByEmail(email:string): Observable<Usuario[]> {
+    return this.httpClient.get<Usuario[]>(this.apiURL + '/usuario/email/' + email)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
     
   update(id: number, usuario: Usuario): Observable<Usuario> {
     return this.httpClient.put<Usuario>(this.apiURL + '/usuario/' + id, JSON.stringify(usuario), this.httpOptions)
@@ -48,7 +55,7 @@ export class MarcajeService {
   }
     
   delete(id: number){
-    return this.httpClient.delete<Usuario>(this.apiURL + '/usuario/' + id, this.httpOptions)
+    return this.httpClient.put<Usuario>(this.apiURL + '/usuario/delete/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -72,9 +79,9 @@ export class MarcajeService {
   )
 }
 
-getMarcajeByUser(id: number, fecha:string): Observable<Marcado> {
-  return this.httpClient.get<Marcado>(this.apiURL + '/marcajeD/user'+ id +'/'+fecha)
-  .pipe(
+getMarcajeByUser(id: number, fecha:string): Observable<Marcado[]> {
+  return this.httpClient.get<Marcado[]>(this.apiURL + '/marcajeD/user/'+ id +'/'+ fecha)
+  .pipe( 
     catchError(this.errorHandler)
   )
 }

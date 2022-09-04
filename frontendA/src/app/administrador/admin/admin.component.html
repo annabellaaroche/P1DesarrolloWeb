@@ -5,7 +5,7 @@
 </p></div>
 
 <div class="container">
-  <button type="button" class="btn btn-dark" routerLink="/admini/create">Crear Usuario</button>
+  <button type="button" class="btn btn-dark" routerLink="/admini/create/{{id_user}}/{{tipo_usuario}}">Crear Usuario</button>
 </div>
 <div class="container">
 <table class="table">
@@ -26,8 +26,8 @@
         <td>{{usuario.nombre}}</td>
         <td>{{usuario.email}}</td>
         <td>{{usuario.tipo_usuario}}</td>
-        <td> <button type="button" class="btn btn-dark" routerLink="/admini/view/{{usuario.id_usuario}}">Ver</button> </td>
-        <td>  <button type="button" class="btn btn-warning" routerLink="/admini/editar/{{usuario.id_usuario}}">Editar</button></td>
+        <td> <button type="button" class="btn btn-dark" routerLink="/admini/view/{{id_user}}/{{tipo_usuario}}/{{usuario.id_usuario}}">Ver</button> </td>
+        <td>  <button type="button" class="btn btn-warning" routerLink="/admini/editar/{{id_user}}/{{tipo_usuario}}/{{usuario.id_usuario}}">Editar</button></td>
         <td>  <button type="button"  class="btn btn-info" (click)="deleteUsuario(usuario.id_usuario)">Borrar</button> </td>
       </tr>
     </tbody>

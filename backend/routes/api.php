@@ -26,10 +26,11 @@ Route::group([],
         Route::get('/usuario', 'USUARIO_CONTROLLER@obtenerUsuarios');
         Route::post('/usuario', 'USUARIO_CONTROLLER@store');
         Route::put('/usuario/{id}', 'USUARIO_CONTROLLER@update');
-        Route::delete('/usuario/{id}', 'USUARIO_CONTROLLER@destroy');
+        Route::put('/usuario/delete/{id}', 'USUARIO_CONTROLLER@destroy');
         Route::get('/marcajeD', 'MARCAJE_DETAIL_CONTROLLER@obtenerDetalle');
         Route::post('/marcajeD', 'MARCAJE_DETAIL_CONTROLLER@store');
         Route::get('/usuario/{id}', 'USUARIO_CONTROLLER@show');
+        Route::get('/usuario/email/{email}', 'USUARIO_CONTROLLER@showByEmail');
         Route::get('/marcajeD/{id}', 'MARCAJE_DETAIL_CONTROLLER@show');
         Route::get('/marcajeD/user/{id}/{fecha}', 'MARCAJE_DETAIL_CONTROLLER@showByuser');
 

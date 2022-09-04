@@ -14,23 +14,23 @@ const routes: Routes = [
       component: AdminiComponent,
       children: [
           {
-              path: 'editar/:id',
+              path: 'editar/:id_usuario/:tipo_usuario/:id',
               component: EditarComponent
           },
           {
-            path: 'admin',
+            path: 'admin/:id_usuario/:tipo_usuario',
             component: AdminComponent
         },
         {
-          path: 'view/:id',
+          path: 'view/:id_usuario/:tipo_usuario/:id',
           component: ViewComponent
       },
       {
-        path: 'create',
+        path: 'create/:id_usuario/:tipo_usuario',
         component: CreateComponent
     },
     {
-      path: 'marcaje',
+      path: 'marcaje/:id_usuario/:tipo_usuario',
       component: MarcajeComponent
     }
        ]
