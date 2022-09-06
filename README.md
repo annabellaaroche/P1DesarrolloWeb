@@ -54,9 +54,9 @@ INSERT INTO desarrollow.estado
 VALUES('Salida');
 
 
-  4. crear archivo .env
-  5. generar llave : php artisan key:generate
-  6. Ejecutar Migraciones: php artisan migrate
+  5. crear archivo .env
+  6. generar llave : php artisan key:generate
+  7. Ejecutar Migraciones: php artisan migrate
  
 **Front end**
 1. npm install 
