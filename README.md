@@ -7,6 +7,7 @@
   4. crear archivo .env
   5. generar llave : php artisan key:generate
   6. Ejecutar Migraciones: php artisan migrate
+ 
 **Front end**
 1. npm install 
 2. ng serve -o
