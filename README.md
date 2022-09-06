@@ -4,6 +4,50 @@
   1. composer install
   2. npm install
   3. crear base de datos laravel: ver archivo con SQl
+    **tabla user**
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `contrasena` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tipo_usuario` int(11) NOT NULL,
+  `activo` int(11) DEFAULT 1,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
+  **tabla marcaje_detail**
+
+CREATE TABLE `marcaje_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` varchar(100) NOT NULL,
+  `hora` varchar(27) NOT NULL,
+  `fk_idUsuario` int(11) NOT NULL,
+  `fk_idestado` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `marcaje_detail_FK` (`fk_idestado`),
+  KEY `marcaje_detail_FK_1` (`fk_idUsuario`),
+  CONSTRAINT `marcaje_detail_FK` FOREIGN KEY (`fk_idestado`) REFERENCES `estado` (`id_estado`),
+  CONSTRAINT `marcaje_detail_FK_1` FOREIGN KEY (`fk_idUsuario`) REFERENCES `usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
+  
+  **tabla estado**
+
+CREATE TABLE `estado` (
+  `id_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) CHARACTER SET armscii8 NOT NULL,
+  PRIMARY KEY (`id_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+<sub>Para este debes de agregar los datos:</sub>
+INSERT INTO desarrollow.estado
+(descripcion)
+VALUES('Entrada');
+INSERT INTO desarrollow.estado
+(descripcion)
+VALUES('Salida');
+
+
   4. crear archivo .env
   5. generar llave : php artisan key:generate
   6. Ejecutar Migraciones: php artisan migrate
