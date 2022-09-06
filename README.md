@@ -1,10 +1,16 @@
 # Desarrollo Web - Proyecto 1
+
+El objetivo de este proyecto es la realizacion de una pagina web donde se puedan realizar marcajes, y la administracion de usuarios, para ello existen dos tipos de usuario: 0 (usuario normal), 1 (usuario administrador). Unicamente el usuario administrador tendra acceso a un CRUD de usuarios.
+
+Ambos usuarios pueden realizar marcajes, para ingresar a la pagina se debe contar con un usuario, debido a que se administran los marcajes, unicamente un administrador puede crear un usuario nuevo.
+
 **Para BackEnd** 
 1. Instalar Dependencias:
   1. composer install
   2. npm install
   3. crear base de datos laravel: ver archivo con SQl
-    **tabla user**
+  
+ **tabla user**
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
