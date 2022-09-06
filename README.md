@@ -1,6 +1,12 @@
-<sup>P1Desarrollo Web</sup>
-For BackEnd Follow this steps to get the API Running
-https://geoinnova.org/como-clonar-un-proyecto-de-laravel-desde-github/?gclid=CjwKCAjw9suYBhBIEiwA7iMhNLoLN2XIymCgyqT6MLNiNfyTe3zeuyJ9LQ7Qq9vYimCBYYZjF-t7hxoC-04QAvD_BwE
-For front end 
-npm install 
-ng serve -o
+# Desarrollo Web - Proyecto 1
+**Para BackEnd** 
+1. Instalar Dependencias:
+  1. composer install
+  2. npm install
+  3. crear base de datos laravel: ver archivo con SQl
+  4. crear archivo .env
+  5. generar llave : php artisan key:generate
+  6. Ejecutar Migraciones: php artisan migrate
+**Front end**
+1. npm install 
+2. ng serve -o
