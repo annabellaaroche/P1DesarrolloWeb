@@ -48,13 +48,14 @@ ingresar(){
   if(user!=null){
     let emailb = user.email;
     let pass= user.contrasena;
+    let activo = user.activo;
     this.id_usuario = user.id_usuario;
     this.tipo_usuario = user.tipo_usuario;
     let servicioUser = {tipo_usuario:this.tipo_usuario,user_id:this.id_usuario};
     this.servicioTipoUser.disparadorDeTipoUser.emit(
       {data:servicioUser}
     )
-   if(emailb.match(email) && pass.match(contrasena)){
+   if(emailb.match(email) && pass.match(contrasena)&& activo >0){
     this.log =true;
     this.router.navigateByUrl('/admini/marcaje/'+ this.id_usuario+'/'+this.tipo_usuario);
   } else{

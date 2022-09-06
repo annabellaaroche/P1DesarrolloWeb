@@ -48,7 +48,7 @@ export class EditarComponent implements OnInit {
     }
     let usuario: Usuario = this.form.value;
     this.marcajeService.update(this.usuario_id, usuario).subscribe((res:any) => {         
-         this.router.navigateByUrl('admini/admin');
+         this.router.navigateByUrl('admini/admin/'+this.id_usuario+'/'+this.tipo_usuario);
     })
   }
 
